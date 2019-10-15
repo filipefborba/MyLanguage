@@ -11,12 +11,12 @@ A linguagem apresentada possui a seguinte EBNF, dada diretamente pela gramática
     ;
 
 * constant
-	: I_CONSTANT		/* includes character_constant */
+	: I_CONSTANT
 	| F_CONSTANT
-	| ENUMERATION_CONSTANT	/* after it has been defined as such */
+	| ENUMERATION_CONSTANT
 	;
 
-* enumeration_constant		/* before it has been defined as such */
+* enumeration_constant
 	: IDENTIFIER
 	;
 
@@ -169,7 +169,7 @@ A linguagem apresentada possui a seguinte EBNF, dada diretamente pela gramática
 	;
 
 * constant_expression
-	: conditional_expression	/* with constraints */
+	: conditional_expression
 	;
 
 * declaration
@@ -202,7 +202,7 @@ A linguagem apresentada possui a seguinte EBNF, dada diretamente pela gramática
 	;
 
 * storage_class_specifier
-	: TYPEDEF	/* identifiers must be flagged as TYPEDEF_NAME */
+	: TYPEDEF
 	| EXTERN
 	| STATIC
 	| THREAD_LOCAL
@@ -222,11 +222,11 @@ A linguagem apresentada possui a seguinte EBNF, dada diretamente pela gramática
 	| UNSIGNED
 	| BOOL
 	| COMPLEX
-	| IMAGINARY	  	/* non-mandated extension */
+	| IMAGINARY
 	| atomic_type_specifier
 	| struct_or_union_specifier
 	| enum_specifier
-	| TYPEDEF_NAME		/* after it has been defined as such */
+	| TYPEDEF_NAME
 	;
 
 * struct_or_union_specifier
@@ -282,7 +282,7 @@ A linguagem apresentada possui a seguinte EBNF, dada diretamente pela gramática
 	| enumerator_list ',' enumerator
 	;
 
-* enumerator	/* identifiers must be flagged as ENUMERATION_CONSTANT */
+* enumerator
 	: enumeration_constant '=' constant_expression
 	| enumeration_constant
 	;
