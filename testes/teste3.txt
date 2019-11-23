@@ -1,0 +1,14 @@
+int principal() {
+    int testeint;
+    testeint = 10;
+    se (testeint < 11) {
+        imprima(testeint + 10);
+    }
+
+    enquanto ((testeint > 0) && (testeint < 11)) {
+        imprima(testeint);
+        testeint = testeint - 1;
+    }
+    testeint = scan();
+    imprima(testeint);
+}

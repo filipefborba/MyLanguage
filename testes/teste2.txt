@@ -1,0 +1,24 @@
+int potencia(int x, int fator) {
+    se (fator == 1) {
+        retorne(x);
+    } senao {
+        retorne(x * potencia(x, fator - 1));
+    }
+}
+
+int fatorial(int n) {
+    se (n > 1) {
+        retorne(n * fatorial(n - 1));
+    } senao {
+        retorne(1);
+    }
+}
+
+int principal() {
+    int b;
+    int c;
+    b = potencia(2, 10);
+    c = fatorial(5);
+    imprima(b);
+    imprima(c);
+}

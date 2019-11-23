@@ -4,7 +4,26 @@ Linguagem C com palavras reservadas em português e um compilador próprio.
 
 ## EBNF
 
-A EBNF da linguagem está descrita no arquivo [EBNF.md](EBNF.md).
+* programa = { funcao };
+* funcao = tipo, identificador, "(", { tipo, identificador, ","}, ")", bloco;
+* bloco = "{", { afirmacao }, "}";
+* afirmacao = sem_op | declaracao | atribuicao | imprima | se | enquanto | bloco | "int", identificador | "retorne", "(", expressao_rel, ")", ";";
+* tipo = "int";
+* sem_op = ";";
+* declaracao = ("int" | "bool"), identificador, ";";
+* atribuicao = identificador, "=", expressao, ";";
+* imprime = "imprime", "(", expressao, ")", ";";
+* se = "se", "(", expressao_rel, ")", afirmacao, { senao };
+* senao = "senao", afirmacao;
+* enquanto = "enquanto", "(", expressao_rel, ")", afirmacao;
+* expressao_rel = expressao | { ("==" | ">" | "<"), expressao };
+* expressao = termo, { ("+" | "-" | "//"), termo };
+* termo = fator, { ("*" | "/" | "&&"), fator };
+* fator = (("+" | "-" | "~"), fator) | numero | "(", expressao_rel, ")" | identificador, { "(", { expressao_rel, "," } ")"} | scan, "(", ")";
+* identificador = caracter, { caracter | digito | "_" };
+* numero = digito, { digito };
+* caracter = ( a | ... | z | A | ... | Z);
+* digito = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0);
 
 ## Viabilidade LLVM
 
@@ -17,3 +36,15 @@ Visto isso, no site do LLVM, temos um [guia de exemplo](https://llvm.org/docs/tu
 
 Com isso, é possível concluir que pode-se utilizar o LLVM para gerar o código de nossa linguagem, porém, é necessário implementar a construção da AST.
 Por outro lado, a sintaxe do LLVM não é tão simples e o compilador que está sendo feito em aula também poderia realizar o mesmo tipo de trabalho.
+
+## Como usar
+
+Para utilizar o compilador, basta utilizar o exemplo a seguir:  
+
+```
+python3 main.py testes/teste1.txt  
+```
+O programa exemplo em questão (teste1.txt) imprime 1 para as expressões que realmente dão Verdadeiro.
+
+Caso queira fazer um exemplo próprio, basta criar um arquivo de texto seguindo a gramática definida e compilar da mesma forma que acima.  
+Use como exemplo as outras entradas de teste!

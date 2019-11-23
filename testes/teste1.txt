@@ -1,0 +1,24 @@
+int principal() {
+    int a;
+    int b;
+    int c;
+    a = 10;
+    b = 20;
+    c = 30;
+
+    se ((a > 0) && (b == 20)) {
+        imprima(1);
+    }
+
+    se ((a > 0) && (b < 0)) {
+        imprima(0);
+    }
+
+    se ((a > 0) || (b < 0)) {
+        imprima(1);
+    }
+
+    se ((a < 0) || (b < 0)) {
+        imprima(0);
+    }
+}
